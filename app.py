@@ -7,7 +7,7 @@ import coffee_shop_lambda
 import coffee_shop_api
 
 api_gateway = boto3.client('apigateway')
-lambda.client = boto3.client('lambda')
+lambda_client = boto3.client('lambda')
 iam_client = boto3.client('iam')
 
 # create Coffee Shop Table
