@@ -13,7 +13,7 @@ def lambda_handler(event, context):
 
 def update_order_status_in_dynamodb(order_id, new_status, customer_name):
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('CoffeOrders')
+    table = dynamodb.Table('CoffeeOrders')
 
     try:
         table.update_item(
