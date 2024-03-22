@@ -60,7 +60,7 @@ def add_lambda_permission(function_name, http_method, lambda_client):
     response = lambda_client.add_permission(
         FunctionName=function_name,
         StatementId=statement_id,
-        Action="lamda:InvokeFunction",
+        Action="lambda:InvokeFunction",
         Principal="apigateway.amazonaws.com"
         SourceArn=source_arn
     )
