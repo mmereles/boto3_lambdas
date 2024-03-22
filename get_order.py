@@ -9,7 +9,7 @@ def lambda_handler(event, context):
 
 def get_orders_from_dynamodb():
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('CoffeOrders')
+    table = dynamodb.Table('CoffeeOrders')
 
     try:
         response = table.scan()
