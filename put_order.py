@@ -17,15 +17,15 @@ def update_order_status_in_dynamodb(order_id, new_status, customer_name):
 
     try:
         table.update_item(
-            Key=[
-                'OrderId': order_id,
+            Key={
+                'OrderID': order_id,
                 'CustomerName': customer_name
-            ],
+            },
             UpdateExpression='SET OrderStatus = :status',
             ExpressionAttributeValues={
                 ":status": new_status
             }
         )
-      return {'message': 'Order status updated successfully!', 'OrderId': order_id}
+        return {'message': 'Order status updated successfully!', 'OrderId': order_id}
     except Exception as e:
         return {'error': str(e)}
