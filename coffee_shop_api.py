@@ -34,8 +34,8 @@ def create_resource_and_methods(api_id, resource_path, api_gateway, function_nam
 
     return resource_id
   
-def integrate_resource_with_lambda(api_gateway, api_id, http_method, function_name):
-    lambda_uri = f'arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:099679901942:function:{function_name}/invocations
+def integrate_resource_with_lambda(api_gateway, api_id, resource_id, http_method, function_name):
+    lambda_uri = f'arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:<Your AWS NUMBER ACCOUNT>:function:{function_name}/invocations'
     integration_response = api_gateway.put_integration(
         restApiId=api_id,
         resourceId=resource_id,
@@ -44,7 +44,7 @@ def integrate_resource_with_lambda(api_gateway, api_id, http_method, function_na
         integrationHttpMethod='POST',
         uri=lambda_uri
     )
-    print(f'Integration for {http_method} method and Lambda function {function_name} created!'
+    print(f'Integration for {http_method} method and Lambda function {function_name} created!')
 
 def add_lambda_permission(function_name, http_method, lambda_client):
 
