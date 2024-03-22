@@ -20,7 +20,7 @@ def create_order_in_dynamodb(customer_name, coffee_blend):
     try:
       table.put_item(
           Item={
-              'OrderId: order_id,
+              'OrderID': order_id,
               'CustomerName': customer_name,
               'CoffeBlend': coffee_blend,
               'Order_Status': Pending
